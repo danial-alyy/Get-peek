@@ -1,0 +1,408 @@
+/**
+ * GIT-PEEK — In-Page Hover Card Stylesheet
+ * 
+ * Premium SaaS product-grade design system:
+ * - Glassmorphic dark slate backdrop
+ * - Fluid shimmer skeleton loaders
+ * - Multi-layered diffuse drop shadows
+ * - Strict isolation to prevent interference with host webpage CSS
+ */
+
+#git-peek-card {
+  position: absolute !important;
+  z-index: 2147483647 !important; /* Highest possible layer */
+  display: none !important;
+  width: 330px !important;
+  max-width: 92vw !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  background: rgba(13, 17, 26, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  direction: ltr !important;
+  animation: gitPeekCardFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  pointer-events: auto !important;
+}
+
+#git-peek-card.git-peek-visible {
+  display: block !important;
+}
+
+#git-peek-card.git-peek-hidden {
+  display: none !important;
+}
+
+#git-peek-card * {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* Card entry animation */
+@keyframes gitPeekCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================
+   1. SKELETON / SHIMMER LOADING UI
+   ========================================================== */
+.git-peek-skeleton-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.git-peek-skel-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.git-peek-skel-avatar {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  border-radius: 50% !important;
+}
+
+.git-peek-skel-ident {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  flex: 1 !important;
+}
+
+.git-peek-skel-bar {
+  border-radius: 4px !important;
+}
+
+.git-peek-skel-bar-lg {
+  width: 65% !important;
+  height: 14px !important;
+}
+
+.git-peek-skel-bar-sm {
+  width: 40% !important;
+  height: 10px !important;
+}
+
+.git-peek-skel-bio {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.git-peek-skel-bar-full {
+  width: 100% !important;
+  height: 11px !important;
+}
+
+.git-peek-skel-bar-med {
+  width: 75% !important;
+  height: 11px !important;
+}
+
+.git-peek-skel-stats {
+  height: 44px !important;
+  border-radius: 10px !important;
+  width: 100% !important;
+}
+
+.git-peek-skel-label-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-top: 4px !important;
+}
+
+.git-peek-mini-spinner {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  border-top-color: #38bdf8 !important;
+  border-radius: 50% !important;
+  animation: gitPeekSpin 0.75s linear infinite !important;
+}
+
+@keyframes gitPeekSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.git-peek-skel-text {
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+/* Fluid Shimmer Wave */
+.git-peek-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: gitPeekShimmerWave 1.6s infinite linear !important;
+}
+
+@keyframes gitPeekShimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ==========================================================
+   2. PROFILE CONTENT
+   ========================================================== */
+.git-peek-profile-content {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.git-peek-card-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.git-peek-avatar-container {
+  position: relative !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+}
+
+.git-peek-avatar-img {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid rgba(99, 102, 241, 0.35) !important;
+  background-color: #1a2233 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.git-peek-avatar-img:hover {
+  transform: scale(1.05) !important;
+  border-color: #38bdf8 !important;
+}
+
+.git-peek-card-identity {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.git-peek-name-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.git-peek-full-name {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.git-peek-verified-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #38bdf8 !important;
+  color: #090d16 !important;
+  font-size: 9px !important;
+  font-weight: bold !important;
+  flex-shrink: 0 !important;
+}
+
+.git-peek-handle {
+  font-size: 12.5px !important;
+  color: #818cf8 !important;
+  font-weight: 500 !important;
+}
+
+/* Bio */
+.git-peek-user-bio {
+  font-size: 12.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.45 !important;
+  margin-bottom: 12px !important;
+  word-break: break-word !important;
+  max-height: 72px !important;
+  overflow-y: auto !important;
+}
+
+/* Meta Badges */
+.git-peek-meta-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-bottom: 12px !important;
+}
+
+.git-peek-meta-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 3px 8px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  max-width: 150px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Stats 3-column bar */
+.git-peek-stats-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  background: rgba(8, 11, 18, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 10px !important;
+  padding: 8px 4px !important;
+  margin-bottom: 14px !important;
+}
+
+.git-peek-stat-col {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.git-peek-stat-num {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+}
+
+.git-peek-stat-title {
+  font-size: 9.5px !important;
+  color: #64748b !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.4px !important;
+  margin-top: 1px !important;
+}
+
+.git-peek-stat-divider {
+  width: 1px !important;
+  height: 18px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Action button */
+.git-peek-action-row {
+  display: flex !important;
+}
+
+.git-peek-primary-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  padding: 8px 14px !important;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(56, 189, 248, 0.15)) !important;
+  border: 1px solid rgba(99, 102, 241, 0.35) !important;
+  border-radius: 8px !important;
+  color: #f8fafc !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+}
+
+.git-peek-primary-btn:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(56, 189, 248, 0.25)) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.git-peek-btn-arrow {
+  transition: transform 0.18s ease !important;
+}
+
+.git-peek-primary-btn:hover .git-peek-btn-arrow {
+  transform: translateX(3px) !important;
+}
+
+/* ==========================================================
+   3. ERROR STATE
+   ========================================================== */
+.git-peek-error-box {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 4px 2px !important;
+}
+
+.git-peek-error-badge {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border-radius: 8px !important;
+  background: rgba(244, 63, 94, 0.12) !important;
+  border: 1px solid rgba(244, 63, 94, 0.3) !important;
+  color: #f43f5e !important;
+}
+
+.git-peek-error-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.git-peek-error-heading {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #f8fafc !important;
+}
+
+.git-peek-error-desc {
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  line-height: 1.4 !important;
+}

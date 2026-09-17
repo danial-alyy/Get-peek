@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIT-PEEK PRO</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    
+    <!-- TOP HEADER -->
+    <header class="popup-header">
+      <div class="brand-group">
+        <div class="brand-logo-wrapper">
+          <img src="icons/icon48.png" alt="GIT-PEEK Icon" class="brand-logo">
+          <span class="logo-glow"></span>
+        </div>
+        <div class="brand-title-wrap">
+          <h1 class="brand-name">GIT-PEEK</h1>
+          <span class="brand-badge">PRO</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="guide-btn" id="open-guide-btn" title="How to Use GIT-PEEK PRO">Guide</button>
+        <div class="status-pill" id="header-status-pill">
+          <span class="status-dot"></span>
+          <span class="status-text" id="header-status-text">Active</span>
+        </div>
+        <button class="icon-button" id="open-test-btn" title="Open Test Bench">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="popup-main">
+
+      <!-- 1. EXTENSION ACTIVE -->
+      <section class="status-section">
+        <div class="status-row" id="status-card">
+          <div class="status-left">
+            <span class="status-pulse-dot" id="status-pulse-dot"></span>
+            <div class="status-text-wrap">
+              <span class="status-title" id="status-card-title">Extension Active</span>
+              <span class="status-subtitle" id="status-card-desc">GitHub profile detection is enabled.</span>
+            </div>
+          </div>
+
+          <label class="switch" title="Toggle Git-Peek Detection">
+            <input type="checkbox" id="detection-toggle" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 2. SESSION OVERVIEW -->
+      <section class="stats-section">
+        <div class="section-label-row">
+          <div class="section-label-left">
+            <span class="section-label">SESSION OVERVIEW</span>
+          </div>
+          <button class="clear-link" id="reset-stats-btn" title="Reset session statistics">Reset</button>
+        </div>
+
+        <div class="stats-grid">
+          <!-- Stat 1: Profiles Viewed -->
+          <div class="stat-card" title="Unique GitHub profiles viewed in this session">
+            <div class="stat-icon-wrap user-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="stat-value" id="stat-profiles-viewed">0</div>
+            <div class="stat-label">Profiles Viewed</div>
+          </div>
+
+          <!-- Stat 2: API Requests -->
+          <div class="stat-card" title="Direct GitHub API network calls made">
+            <div class="stat-icon-wrap api-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="stat-value" id="stat-api-requests">0</div>
+            <div class="stat-label">API Requests</div>
+          </div>
+
+          <!-- Stat 3: Cached Profiles -->
+          <div class="stat-card" title="Profiles loaded instantly from in-memory cache">
+            <div class="stat-icon-wrap cache-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <div class="stat-value" id="stat-cached-profiles">0</div>
+            <div class="stat-label">Cached Profiles</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. RECENT LOOKUPS -->
+      <section class="recent-section">
+        <div class="section-label-row">
+          <div class="section-label-left">
+            <span class="section-label">RECENT LOOKUPS</span>
+            <span class="recent-counter-badge" id="recent-counter">0</span>
+          </div>
+          <button class="clear-link" id="clear-recent-btn" title="Clear recent lookups">Clear</button>
+        </div>
+
+        <div class="recent-card">
+          <div class="recent-list" id="recent-list">
+            <!-- Populated dynamically via popup.js from chrome.storage.local -->
+          </div>
+          <div class="recent-empty" id="recent-empty">
+            No recent lookups yet
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 4. MINIMAL FOOTER -->
+    <footer class="popup-footer">
+      <div class="footer-left">
+        <span class="footer-title">GIT-PEEK PRO</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-version">v1.0</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
